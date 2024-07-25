@@ -1,1 +1,1 @@
-module.exports='https://task-manager-server-mocha.vercel.app/'
+module.exports='https://task-manager-server-mocha.vercel.app'
