@@ -14,7 +14,6 @@ const useAuth = () => {
                 navigate('/');
                 return;
             }
-            console.log(token)
             try {
                 const res = await fetch(`${baseUrl}/api/tasks`, {
                     method: 'GET',
