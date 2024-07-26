@@ -3,11 +3,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import EditSingleTask from '../Components/EditSingleTask'
 import baseUrl from '../baseUrl'
+import useAuth from '../utils/useAuth'
 
 function EditTaskPage() {
     const {id}=useParams()
 
     const navigate=useNavigate()
+    const isAuth=useAuth()
+
 
     const [editTask,setEditTask]=useState({
         title: '',

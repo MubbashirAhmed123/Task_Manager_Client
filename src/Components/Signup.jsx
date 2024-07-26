@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import GoogleLoginButton from './GoogleLoginButton';
 import baseUrl from '../baseUrl';
@@ -11,6 +11,8 @@ const Signup = () => {
     password:''
   });
 
+  const navigate=useNavigate()
+
   const handleChange=(e)=>{
     const{name,value}=e.target
     setRegister({...register,[name]:value})
@@ -19,6 +21,7 @@ const Signup = () => {
 
   const handleSignup = async(e) => {
     e.preventDefault();
+    setRegister({username:'',email:'',password:''})
     try {
         const response = await fetch(`${baseUrl}/api/auth/signup`, {
           method: 'POST',
@@ -30,6 +33,7 @@ const Signup = () => {
         const data = await response.json();
         if (response.ok) {
           localStorage.setItem('user', data.token);
+          navigate('/tasks')
           toast.success('registerd successfully.')
         } else {
         //   throw new Error(data.error);
@@ -55,6 +59,7 @@ const Signup = () => {
           value={register.username}
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded mt-1"
+          required
         />
       </div>
       <div className="mb-4">
@@ -65,6 +70,7 @@ const Signup = () => {
           value={register.email}
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded mt-1"
+          required
         />
       </div>
       <div className="mb-4">
@@ -75,6 +81,7 @@ const Signup = () => {
           value={register.password}
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded mt-1"
+          required
         />
       </div>
       <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">

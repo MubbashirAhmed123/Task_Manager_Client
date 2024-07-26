@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import baseUrl from '../baseUrl'
+import useAuth from '../utils/useAuth'
 
 function AddTask({ setAddTask }) {
 
@@ -11,6 +12,9 @@ function AddTask({ setAddTask }) {
         column: 'To Do',
         dueDate: ''
     })
+
+    const isAuth=useAuth()
+  
 
     const navigate=useNavigate()
 
@@ -34,7 +38,7 @@ function AddTask({ setAddTask }) {
           },
           body: JSON.stringify(task)
         });
-  
+          
         if (response.ok) {
          toast.success('task added')
          navigate('/tasks')

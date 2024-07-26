@@ -8,6 +8,7 @@ import AddTask from './Components/AddTask';
 import EditTaskPage from './pages/EditTaskPage';
 import ViewSingleTaskPage from './pages/ViewSingleTaskPage';
 import Navbar from './Components/Navbar';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path='/add-task' element={<AddTask/>}/>
           <Route path='/edit-task/:id' element={<EditTaskPage/>}/>
           <Route path='/single-task/:id' element={<ViewSingleTaskPage/>}/>
+          <Route path='*' element={<NotFoundPage/>}/>
+
           </Routes>
       </div>
   );

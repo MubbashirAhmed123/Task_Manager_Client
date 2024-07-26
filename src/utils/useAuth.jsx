@@ -28,7 +28,7 @@ const useAuth = () => {
 
                     const errorData = await res.json();
                     localStorage.removeItem('token');
-                    toast.error(errorData.msg);
+                    toast.error(errorData.error);
                     setIsAuth(false)
                     navigate('/');
                 }

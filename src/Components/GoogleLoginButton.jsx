@@ -18,7 +18,6 @@ const GoogleLoginButton = () => {
           })
           const data=await res.json()
           localStorage.setItem('user',data.token)
-          toast.success(data.msg)
           if(res.ok){
           navigate('/tasks')
           }else{

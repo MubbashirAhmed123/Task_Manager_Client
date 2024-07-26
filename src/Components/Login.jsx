@@ -22,7 +22,7 @@ const Login = () => {
 
   const handleLogin =async (e) => {
     e.preventDefault();
-    // Handle login logic here
+    setLogin({email:'',password:''})
         try {
           const response = await fetch(`${baseUrl}/api/auth/login`, {
             method: 'POST',
@@ -58,6 +58,7 @@ const Login = () => {
           value={login.email}
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded mt-1"
+          required
         />
       </div>
       <div className="mb-4">
@@ -68,6 +69,7 @@ const Login = () => {
           value={login.password}
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded mt-1"
+          required
         />
       </div>
       <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
