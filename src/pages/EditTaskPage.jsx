@@ -41,7 +41,7 @@ function EditTaskPage() {
         });
   
         if (response.ok) {
-         toast.success('Changes made successfuuly.')
+         toast.success('Changes made successfully.')
          navigate('/tasks')
         } else {
           const data = await response.json();

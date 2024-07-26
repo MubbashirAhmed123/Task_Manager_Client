@@ -40,7 +40,7 @@ function AddTask({ setAddTask }) {
         });
           
         if (response.ok) {
-         toast.success('task added')
+         toast.success('Task added.')
          navigate('/tasks')
         } else {
           const data = await response.json();
